@@ -1,0 +1,206 @@
+<html>
+
+<head>
+        <!-- Including bootstrap v3.3.7 -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		
+		<!-- Including Custom css -->
+		
+		<style>
+            @import url('https://fonts.googleapis.com/css?family=Josefin+Slab');
+
+.main{
+	padding:20px;
+	font-family: 'Josefin Slab', serif;
+	border : 2px solid #50d8a4;
+	border-radius: 15px;
+	
+}
+.main h1{
+	font-size: 50px;
+	text-align:center;
+	font-family: 'Josefin Slab', serif;
+	color: #549978;
+}
+input{
+	font-family: 'Josefin Slab', serif;
+    width: 100%;
+	font-size: 30px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-bottom: 2px solid #50d8a4;
+}
+input[type=submit] {
+	font-family: 'Josefin Slab', serif;
+	width: 100%;
+    background-color: #549978;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+	border-radius: 15px;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+input:hover {
+	font-family: 'Josefin Slab', serif;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	border: none;
+    border-bottom: 2px solid #549978;
+}
+
+input[type=submit]:hover {
+	font-family: 'Josefin Slab', serif;
+	width: 100%;
+    background-color: #549978;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+	border-radius: 15px;
+}
+		
+        </style>
+        
+        <link href='https://fonts.googleapis.com/css?family=Alice' rel='stylesheet'>
+        <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body >
+
+  <div class="container" >
+    <div class="row">
+      <div class="col-md-3">
+        <!-- Blank DIV -->
+      </div>
+      
+      <div class="col-md-6 main">
+        <!-- Form Tag starts here -->
+                  <!-- Action attribute is the route on backend. Method is POST -->                
+        <form id="loginform" onsubmit="return dashboard()">  
+          <h1> Login form </h1>
+          <input class="box" type="text" name="user" id="user" placeholder="Enter your Username"  required /><br>
+    
+                      <input class="box" type="password" name="pass" id="pass" placeholder="Enter your Pasword"  required>
+                      
+                      
+          <input type="submit" value="Login">
+                      <a href="http://localhost:5000/register">
+                      <input type="button" value="new user">
+                      </a>
+                        
+        </form>    
+      </div>   
+    </div>
+  </div>
+
+        <script>
+                function checkvalue() {
+                        var flag = "false";
+                        if (loginform.user.value && loginform.pass.value) {
+                                flag = "true";
+
+                        }
+                        else {
+                                alert('Enter all fields!');
+                        }
+                        return flag;
+
+                }
+
+                        
+                var saltval;
+                function dashboard() {
+                        var flag = checkvalue();
+                        
+                        
+                        if (flag) {
+                              
+                                var fd = document.getElementById("loginform");
+                                var formData = {
+                                        username: fd.user.value,
+                                        password: fd.pass.value
+
+                                }
+                                console.log(formData);
+                              
+                                
+                                fetch("http://localhost:3000/login/"+fd.pass.value, {
+                                        method: 'POST',
+                                        headers: {
+                                                'Content-Type': 'application/json',
+                                        },
+                                        body: JSON.stringify(formData),
+
+                                })
+                                        .then((response) => {
+                                                return response.text();
+                                        })
+                                        .then((mytext) => {
+                                               
+                                                flag1 = 'done';
+                                                if (mytext == 'done') {
+                                                        console.log("FUNCC ")
+                                                      //  alert("HELOOL");
+                                                    callrespective(fd.user.value);
+                                                 
+                                                }
+                                                else {
+                                                        
+                                                        alert(mytext);
+                                                }
+                                        })
+
+                                        .catch(function () {
+                                                console.log("error");
+                                        });
+
+                                return false;
+                        }
+                }
+                const options={
+                        method:"post"
+                        }
+
+                
+
+                       
+                function callrespective(user){
+                        
+                        fetch("http://localhost:3000/who/"+user, options)
+                        .then((response) => {
+                        return response.json();
+                        })
+                        .then((respuser) => {
+                                
+                                respuser.forEach(function (User) {
+                                        console.log(User);
+                                         console.log("HEKKK"+User.ServiceName);
+                                         window.location.href = "/"+User.ServiceName;
+                                       
+                                })
+                       
+                        })
+                        .catch(function () {
+                        console.log("error");
+                        });
+                }
+        </script>
+       
+</body>
+
+</html>

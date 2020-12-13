@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+        <!-- Title  -->
+        <title>Maid Services</title>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!-- Favicon  -->
+        <link rel="stylesheet" href="../css/style.css">
+          <link rel="stylesheet" href="../css/footer.css">
+    
+          <link rel="icon" href="../img/core-img/favicon.ico">
+    
+          <!-- Core Style CSS -->
+          <link rel="stylesheet" href="../css/core-style.css">
+          <script src="../js/feedback.js"></script>
+    </head>
+
+<body onload="load()">
+    <!-- ##### Header Area Start ##### -->
+    <header class="header_area" >
+        <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar" id="essenceNav">
+                <!-- Logo -->
+                <a class="nav-brand"  href="http://localhost:5000/customer.html">Services to Door</a>
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+                <!-- Menu -->
+                <div class="classy-menu">
+                    <!-- close btn -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul>
+                            <li><a href="#">Services</a>
+                                <div class="dropdown"> 
+                                        <a class="dropdown-item" href="http://localhost:5000/services/customermaid.html">Cleaning</a>
+                                        <a class="dropdown-item" href="http://localhost:5000/services/customerelectric.html">Electric</a>
+                                        <a class="dropdown-item" href="http://localhost:5000/services/customerkitchen.html">Kitchen Tools</a> 
+                                </div>
+                            </li>
+                            <li><a href="#">Products</a>
+                                <ul class="dropdown">
+                                    <a class="dropdown-item" href="http://localhost:5000/product/customerutensil.html">Utensils</a>
+                                    <a class="dropdown-item" href="http://localhost:5000/product/customerfurniture.html">Furniture</a>
+                                    <a class="dropdown-item" href="http://localhost:5000/product/customerbedsheet.html">Bedsheet</a>
+                                </ul>
+                            </li>
+                          
+                        </ul>
+                    </div>
+                    <!-- Nav End -->
+                </div>
+            </nav>
+
+            <!-- Header Meta Data -->
+            <div class="header-meta d-flex clearfix justify-content-end">    
+              
+                <div class="user-login-info">
+                    <a href="http://localhost:3000/logout" id="essenceCartBtn"> <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
+                </div>  
+            </div>
+
+        </div>
+    </header>
+   
+
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb_area bg-img" style="background-image: url(../img/bg-img/breadcumb.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="page-title text-center">
+                        <h2>MAID SERVICES</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### Checkout Area Start ##### -->
+    <div class="checkout_area section-padding-80">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12 col-md-6">
+                    <div class="checkout_details_area mt-50 clearfix">
+                        <div class="cart-page-heading mb-30">
+                            <h5>Registration Form</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 ml-lg-auto" style="font-size: 20px;color: black;">
+                    <div class="order-details-confirmation" >
+                        <form onsubmit="return display()">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <label for="name">Name <span>*</span></label>
+                                    <input type="text" class="form-control" id="name"  readonly>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="address">Address <span>*</span></label>
+                                    <input type="text" class="form-control mb-3" id="address" readonly >
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="phnum">Phone Number</label>
+                                    <input type="text" class="form-control" id="phnum" readonly >
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <label for="email_address">Email Address <span>*</span></label>
+                                    <input type="email" class="form-control" id="email_address" readonly>
+                                </div>
+                                
+                                <div class="col-12 mb-4 ">
+                                    <label for="service">Services You Wanted<span>*</span></label>
+                                   <br>
+                                   <div class="order-details-confirmation " >
+                                    <input  type="checkbox" name="box" id="1" ><label id="lbl_1" >Washing Clothes</label>&nbsp;&nbsp;
+          
+                                    <input id="2" type="checkbox" name="box"  ><label id="lbl_2">Cleaning Utensil</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    
+                                    <input type="checkbox" name="box"  id="3" ><label id="lbl_3">Sweeping</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="checkbox" name="box"  id="5" ><label id="lbl_5">Cleaning Toilet</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <br>
+                                    <input type="checkbox" name="box" id="4" ><label id="lbl_4">Dusting(Sofa+cushion and Carpet)</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    
+                                    <input type="checkbox" name="box"  id="7" ><label id="lbl_7">Cleaning Garden</label>&nbsp;&nbsp;
+                                    
+                                    <input type="checkbox" name="box"  id="6" ><label id="lbl_6">Cleaning Bathroom</label>&nbsp;&nbsp;
+                                    
+                                    
+                                    <span id="txt" hidden></span>
+                                </div>
+                                  
+                                   
+                                    
+                                </div>
+                               
+                                <div class="col-12 mb-3">
+                                    <label for="time">Time <span>*</span></label>
+                                    <select class="w-100" id="time">
+                                        <option value="9 to 11">9 to 11</option>
+                                        <option value="11 to 1">11 to 1</option>
+                                        <option value="1 to 3">1 to 3</option>
+                                        <option value="3 to 5">3 to 5</option>
+                                        <option value="5 to 7">5 to 7</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12 mb-3">
+                                    <label for="places">Places<span>*</span></label>
+                                    <select class="w-100" id="places">
+                                        <option value="vaniyavad">Vaniyavad</option>
+                                        <option value="collegeroad">College Road</option>
+                                        <option value="vaishaliarea">Vaishali Area</option>
+                                        <option value="vkvroad">Vkv Road</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-12 mb-3">
+                                    <label for="pincode">Pincode <span>*</span></label>
+                                    <input type="text" class="form-control" id="pincode" pattern="[0-9]{6}" title="Enter pin code of 6 digits" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="date">Date <span>*</span></label>
+                                    <input type="text" class="form-control" id="date">
+                                </div> 
+                                <div class="col-12 mb-3">
+                                    <label for="person">Number of Persons <span>*</span></label>
+                                    <input type="number" class="form-control" id="person" pattern="[0-9]*" min="1" max="12"  title="Enter numerical value less than 12" required>
+                                </div>
+
+                                <div class="col-12 mb-3">
+                                    <label for="bhk">BHK House<span>*</span></label>
+                                    <select class="w-100" id="bhk">
+                                        <option value="1 BHK">1 BHK</option>
+                                        <option value="2 BHK">2 BHK</option>
+                                        <option value="3 BHK">3 BHK</option>
+                                        <option value="4 BHK">4 BHK</option>
+                                        <option value="5 BHK">5 BHK</option>
+                                        <option value="7 BHK">7 BHK</option>
+                                    </select>
+                                    
+                                    
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input type="submit" value="submit" class="btn essence-btn" style="width:100%">
+                                </div>
+
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Checkout Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer style=" bottom:0;">
+        <div class="main-content">
+          <div class="left box">
+            <h2 style="color: white;">About us</h2>
+            <div class="content">
+                <p>Services is a E-commerce website where user can register for there services or they can use the services which is provided by our website.</p>
+            </div>
+          </div>
+          <div class="center box">
+            <h2 style="color: white;">Address</h2>
+            <div class="content">
+              <div class="place">
+                <span class="fas fa-map-marker-alt"></span>
+                <span class="text">Nadiad, Gujarat</span>
+              </div>
+      
+              <div class="email">
+                  <span class="text">services@example.com</span>
+              </div>
+            </div>
+          </div>
+        
+          <div class="right box">
+            <h2 style="color: white;">FeedBack</h2>
+            <div class="content">
+            <form action="#">
+                <div class="email">
+                  <div class="text">Email *</div>
+                  <input type="email" required>
+                </div>
+                <div class="msg">
+                  <div class="text">Message *</div>
+                  <changeit id=".msgForm" rows="2" cols="25" required></changeit> 
+                  <input type="msg" required>
+                 <br />
+                  <div class="btn">
+                    <button type="submit">Send</button>
+                  </div>
+                <div class="bottom">
+                  <center>
+                      <span class="credit">Created By Services</a> | </span>
+                      <span class="far fa-copyright"></span> 2020 All rights reserved.
+                    </center>
+                </div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      </footer>
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="../js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="../js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="../js/plugins.js"></script>
+    <!-- Classy Nav js -->
+    <script src="../js/classy-nav.min.js"></script>
+    <!-- Active js -->
+    <script src="../js/active.js"></script>
+
+</body>
+    <!-- ##### Footer Area End ##### -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+   
+
+$( function() {
+$( "#date" ).datepicker({ minDate: 0, maxDate: "+15D " });
+} );
+
+       const options={
+        method:"post"
+        }
+
+          function load(){
+ fetch("http://localhost:3000/editInfoCustomer", options)
+.then((response) => {
+   return response.json();
+})
+.then((campaign) => { 
+       campaign.forEach(function (camp) {  
+        document.getElementById("name").value=camp.Name;
+        document.getElementById("address").value=camp.Address;
+        document.getElementById("phnum").value=camp.Phone;
+        document.getElementById("email_address").value=camp.Emailid;
+       })
+   })
+   .catch(function () {
+       console.log("error");
+   });
+}
+
+
+function addService()
+{ 
+ //  alert("here")
+
+var select="";
+document.getElementById("txt").innerHTML = "";
+var checkBoxes = document.getElementsByName("box");
+var numberOfWork=0;
+for(var i=0; i < checkBoxes.length;i++)
+{ 
+    if(checkBoxes[i].checked)
+    {           
+  document.getElementById("txt").innerHTML += document.getElementById("lbl_"+checkBoxes[i].id).innerHTML+","
+numberOfWork+=1   
+}
+}
+select=document.getElementById("txt").innerHTML;
+// alert("AFTER CHECK")
+// alert(select)
+var x="maid";
+var formData = {
+ 
+ 'Name':document.getElementById("name").value,
+ 'PhoneNum':document.getElementById("phnum").value,
+ 'Address':document.getElementById("address").value,
+ 'Emailid': document.getElementById("email_address").value,
+'Pincode':document.getElementById("pincode").value,
+  'Place':document.getElementById("places").value,
+    'Time':document.getElementById("time").value,
+ 'Date':document.getElementById("date").value,
+ 'NoOfPerson':document.getElementById("person").value,
+'BHK':document.getElementById("bhk").value,
+  'Service':select,
+'ServiceName':x,
+
+ 
+}
+
+
+   
+
+fetch("http://localhost:3000/CustomerMaid/"+x, {
+                 method: 'POST',
+                 headers: {
+                     'Content-Type': 'application/json',
+                 },
+                 body: JSON.stringify(formData),
+
+             })
+   
+.then((response) => {
+    // alert("HHEJJ")
+  return response.text();
+})
+.then((mytext) => {
+   // alert("HHHH")
+    if (mytext == 'done') {
+        window.location.href = "http://localhost:5000/services/checkoutmaid";
+  console.log(mytext);
+                          }
+                          else {
+                                  alert(mytext);
+                          }
+                          window.location.href = "/services/Suggestion?"+(numberOfWork*100)+"!maid";
+
+})
+
+.catch(function () {
+  console.log("error");
+});
+
+return false;
+
+}
+
+
+
+
+
+
+
+
+function display(){
+
+// alert("in diisplai")
+
+var select="";
+document.getElementById("txt").innerHTML = "";
+var checkBoxes = document.getElementsByName("box");
+for(var i=0; i < checkBoxes.length;i++)
+{ 
+    if(checkBoxes[i].checked)
+    {           
+  document.getElementById("txt").innerHTML += document.getElementById("lbl_"+checkBoxes[i].id).innerHTML+","
+    }
+}
+select=document.getElementById("txt").innerHTML;
+// alert("AFTER CHECK")
+// alert(select)
+// alert(document.getElementById("places").value);
+    var area=document.getElementById("places").value;
+    var services="maid";
+    var formData = {
+                  
+    'Area':area         
+
+              }
+            //   alert("Areaa")
+              fetch("http://localhost:3000/Area/"+services,{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+
+                })
+                .then((response) => {
+            //    alert("1");
+                return response.json();
+                })
+                .then((campaign) => {
+                    console.log("from api :" +campaign);
+                    //alert("2")
+                    campaign.forEach(function (camp) {
+                        // alert("3")
+                        // console.log("inside: ");
+                    //      alert("inside: "+camp.Name);
+                    //  alert(camp.Work);
+                        var tocheck=camp.Work;
+                        // alert(tocheck)
+                        var flag=1;
+                        // alert("flag")
+                        // alert(flag)
+                        var sample="";
+                        var n=0;
+                        var flag=1;
+                        for(var j=0;j<select.length;j++){
+                            if(select[j]==',')
+                            {
+                                if(sample=="Washing Clothes"){
+                                n = tocheck.search("Clothes");
+                                }
+                                else if(sample=="Cleaning Utensil"){
+                              
+                                n = tocheck.search("Utensil");
+                              
+                                }
+                                else if(sample=="Sweeping"){               
+                                    n = tocheck.search("Sweeping");
+                                }
+                                else if(sample=="Dusting(Sofa+cushion and Carpet)"){               
+                                n = tocheck.search("Dusting");
+                                }
+                                else if(sample=="Cleaning Toilet"){
+                                n = tocheck.search("Toilet");
+                                
+                                }
+                                else if(sample=="Cleaning Bathroom"){               
+                                n = tocheck.search("Bathroom");
+                               
+                                }
+                                else if(sample=="Cleaning Garden"){
+                                    n = tocheck.search("Garden");
+                                }
+                                if (n==-1){
+                                  
+                                    flag=0;
+                                    break;
+                                }
+                                sample="";
+                            }
+                            else{
+                                sample+=select[j];
+                            }
+       
+                        }
+                        //alert("falg vakiue"+flag)
+                        if(flag==1)
+                        {
+                            //alert(camp.Name);
+                            var formDataA = {
+ 
+                            'id':camp._id,
+                            'Name': camp.Name,
+                            'WorkDone': parseInt(camp.WorkDone), 
+                            }
+                          //  alert("BEFORE CALLING")
+                            fetch("http://localhost:3000/InsertDetails",{
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(formDataA),
+
+                            })
+                            .then((response) => {
+                           //  alert("1 insert"+response.json());
+                            return response.json();
+                            })
+                            .then((campaign) => {
+                            console.log("from api :" +campaign);
+                          //  alert("2")
+                                // if (mytext == 'done') {
+                                      
+                                // }
+                                // else {
+                                //         alert(mytext);
+                                // }
+                            })
+
+                            .catch(function () {
+                                console.log("error");
+                            });
+
+                            console.log("FKFKKFKFKFKFKKFKFKKFKKKKKKKKKKK")
+
+                            //ll
+                        }
+                    })
+                    addService()
+                }).catch(function (e) {
+                console.log("error"+e);
+                });
+
+                console.log("here")
+                return false;
+}
+
+
+      </script>
+</html>

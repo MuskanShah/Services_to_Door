@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Services to Door</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="../img/core-img/favicon.ico">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="../css/core-style.css">
+    
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/feedback.js"></script>
+<style>
+img {
+  
+  max-width: 100%; }
+  .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 450px;
+  height: 550px;
+  padding:20px;
+  float:left;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+.edit{
+  
+  background-color: rgb(160, 231, 225);
+  border: none;
+  color: black;
+  
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.delete{
+  background-color: rgb(255, 61, 61);
+   color: black;
+   font-size: 16px;
+   border-radius: 50px;
+ /* text-align: center;
+  
+  
+  
+  cursor: pointer; */
+}
+.delete:hover{
+  background-color: rgb(255, 61, 61);
+   color: black;
+   font-size: 16px;
+   border-radius: 50px;
+}
+table,
+      td,
+      th {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #e5e5e5;
+        text-align: center;
+      }
+
+
+</style>
+</head>
+<body onload="call(),displayImage()">
+
+  <header class="header_area" >
+    <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+        <!-- Classy Menu -->
+        <nav class="classy-navbar" id="essenceNav">
+            <!-- Logo -->
+            <a class="nav-brand">Services to Door</a>
+            <!-- Navbar Toggler -->
+            <div class="classy-navbar-toggler">
+                <span class="navbarToggler"><span></span><span></span><span></span></span>
+            </div>
+            <!-- Menu -->
+            <div class="classy-menu">
+                <!-- close btn -->
+                <div class="classycloseIcon">
+                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                </div>
+                <!-- Nav Start -->
+                <div class="classynav">
+                  <ul>
+                    <li><a href="http://localhost:5000/furniture">Home</a>
+                    </li>
+                    <li><a href="http://localhost:5000/product/furnitureServices.html" >Services</a>     
+                    </li>
+                  
+                </ul>
+                </div>
+                <!-- Nav End -->
+            </div>
+        </nav>
+
+        <!-- Header Meta Data -->
+        <div class="header-meta d-flex clearfix justify-content-end">    
+                  
+            <!-- Cart Area -->
+            
+            <div class="user-login-info">
+                <a href="http://localhost:3000/logout" id="essenceCartBtn"> <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
+            </div>  
+        </div>
+
+    </div>
+</header>
+
+      
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <button class="btn e-btn"  > <a href="http://localhost:5000/product/furnitureServices" style="color:white">Show Services</a></button>
+      
+      <button class="btn e-btn" onclick="openSearch()">Add Your Service</button>
+      <button class="btn e-btn"  onclick="order()"> Your Orders</button>
+      
+    <div id="myOverlay" class="overlay">
+   
+        <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="col-12 col-md-6">
+          <div class="checkout_details_area mt-50 clearfix">
+              <div class="cart-page-heading mb-30">
+                  <h5>Add your Services!!</h5>
+              </div>
+              <form action="http://localhost:3000/UP" method="POST" enctype="multipart/form-data" id ="regisform">
+                  <div class="row">
+                      <div class="col-md-12 mb-3">
+                          <label for="nameofprod">Name of Product <span>*</span></label>
+                          <input type="text" class="form-control"name="nameofprod"  id="nameofprod" required>
+                          
+                      </div>
+                      <br/>
+                      <div class="col-md-12 mb-3">
+                          <label for="descImg">Description of Product <span>*</span></label>
+                          <input type="text" class="form-control" id="descImg" name="descImg"  value="" required>
+                      </div>
+                      
+                      <div class="col-md-12 mb-3">
+                        <label for="descImg">Enter Price <span>*</span></label>
+                        <br>
+
+                       <input type="text" class="form-control "  name="price"  id="price" required pattern="[0-9]*" title="Invalid Price ">
+                      </div>
+                      
+                      <div class="col-md-12 mb-3">
+                          <label for="qty">Enter Quantity <span>*</span></label>
+                          <br>
+                          <input type="text" class="form-control"  name="qty"  id="qty" required pattern="[0-9]*" title="Invalid Quantity ">
+                      </div>
+                      <div class="col-12 mb-3">
+                          <label for="qty">Choose Image <span>*</span></label>
+                          <input type="file" id="image"   name="image" value="" required style="width: 90%;">
+                      </div>
+                      <div class="col-12 mb-3">
+                          <button type="submit" class="btn btn-lg btn-success"  style="text-align:center">REGISTER</button>
+                      
+                      </div>
+                      <input type="hidden" name="ServiceName"  id="ServiceName" value="furniture">
+                  </div>
+              </form>
+          </div>
+      </div>
+        
+      </div>
+      <div id="myOverlay1" class="overlay">
+   
+        <span class="closebtn" onclick="closeSearch2()" title="Close Overlay">×</span>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="col-12 col-md-6">
+          <div class="checkout_details_area mt-50 clearfix">
+              <div class="cart-page-heading mb-30">
+                  <h5>Update your Services!!</h5>
+              </div>
+              <form action="http://localhost:3000/update" method="POST" enctype="multipart/form-data" id ="form1">
+                  <div class="row">
+                    <div class="col-md-12 mb-3">
+                      <input type="text" name="id" readonly >
+                  </div>
+                      <div class="col-md-12 mb-3">
+                          <label for="nameofprod">Name of Product <span>*</span></label>
+                          <input type="text" class="form-control"name="nameofprod"  id="nameofprod" required>
+                          
+                      </div>
+                      <br/>
+                      <div class="col-md-12 mb-3">
+                          <label for="descImg">Description of Product <span>*</span></label>
+                          <input type="text" class="form-control" id="descImg" name="descImg"  value="" required>
+                      </div>
+                      
+                      <div class="col-md-12 mb-3">
+                        <label for="descImg">Enter Price <span>*</span></label>
+                        <br>
+
+                       <input type="text" class="form-control "  name="price"  id="price" required pattern="[0-9]*" title="Invalid Price ">
+                      </div>
+                      
+                      <div class="col-md-12 mb-3">
+                          <label for="qty">Enter Quantity <span>*</span></label>
+                          <br>
+                          <input type="text" class="form-control"  name="qty"  id="qty" required pattern="[0-9]*" title="Invalid Quantity ">
+                      </div>
+                      <div class="col-12 mb-3">
+                          <label for="qty">Choose Image <span>*</span></label>
+                          <input type="file" id="image"   name="image" value="" required style="width: 90%;">
+                      </div>
+                      <div class="col-12 mb-3">
+                          <button type="submit" class="btn btn-lg btn-success"  style="text-align:center">UPDATE</button>
+                      
+                      </div>
+                      <input type="hidden" name="ServiceName"  id="ServiceName" value="furniture">
+                  </div>
+              </form>
+          </div>
+      </div>
+        
+      </div>
+      <br/>
+      <br/>
+      <figure>
+        <div id="images"></div>
+      </figure>
+    
+    <table style="border: 1px solid #dddddd; width:100% ;">  
+      
+       <tr> <div id="table">  
+    </div></tr></table>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <footer style=" bottom:0;">
+      <div class="main-content">
+        <div class="left box">
+          <h2 style="color: white;">About us</h2>
+          <div class="content">
+              <p>Services is a E-commerce website where user can register for there services or they can use the services which is provided by our website.</p>
+          </div>
+        </div>
+        <div class="center box">
+          <h2 style="color: white;">Address</h2>
+          <div class="content">
+            <div class="place">
+              <span class="fas fa-map-marker-alt"></span>
+              <span class="text">Nadiad, Gujarat</span>
+            </div>
+    
+            <div class="email">
+                <span class="text">services@example.com</span>
+            </div>
+          </div>
+        </div>
+      
+        <div class="right box">
+          <h2 style="color: white;">FeedBack</h2>
+          <div class="content">
+          <form action="#">
+              <div class="email">
+                <div class="text">Email *</div>
+                <input type="email" required>
+              </div>
+              <div class="msg">
+                <div class="text">Message *</div>
+                <changeit id=".msgForm" rows="2" cols="25" required></changeit> 
+                <input type="msg" required>
+               <br />
+                <div class="btn">
+                  <button type="submit">Send</button>
+                </div>
+              <div class="bottom">
+                <center>
+                    <span class="credit">Created By Services</a> | </span>
+                    <span class="far fa-copyright"></span> 2020 All rights reserved.
+                  </center>
+              </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </footer>
+  <!-- ##### Footer Area End ##### -->
+
+  <!-- jQuery (Necessary for All JavaScript Plugins) -->
+  <script src="../js/jquery/jquery-2.2.4.min.js"></script>
+  <!-- Popper js -->
+  <script src="../js/popper.min.js"></script>
+  <!-- Bootstrap js -->
+  <script src="../js/bootstrap.min.js"></script>
+  <!-- Plugins js -->
+  <script src="../js/plugins.js"></script>
+  <!-- Classy Nav js -->
+  <script src="../js/classy-nav.min.js"></script>
+  <!-- Active js -->
+  <script src="../js/active.js"></script>
+
+</body>
+<script>
+    const options={
+ method:"post"
+}
+
+// const a = document.getElementById("name");
+var vat="";
+ function call()
+ { 
+     console.log("Calling");
+     fetch("http://localhost:3000/Sessionuser",
+     {
+             method: 'POST',
+             headers: {
+                     'Content-Type': 'application/json',
+             }, 
+     }).then((response) => 
+     {
+         return response.text();
+     })
+     .then((mytext) => 
+     {
+       console.log(mytext);
+       vat=mytext;
+        //  a.innerText=mytext;
+         
+     })
+     .catch(function () 
+     {
+         console.log("error");
+     });
+ }
+
+
+ const tab = document.getElementById("table");
+ var temp=0;
+ function order(){
+   document.getElementById("images").style.display = "none";
+   document.getElementById("table").style.display = "block";
+console.log("Name  "+vat);
+if (temp==0){
+  fetch("http://localhost:3000/order/"+vat, options)
+
+.then((response) => {
+temp=1;
+return response.json();
+})
+.then((campaign) => {
+ console.log("from api :" +campaign);
+ var count=1;
+
+ const table=document.createElement('table');
+ if(count==1){
+   
+   const Name1=document.createElement('th');
+   const ProductName1=document.createElement('th');
+   const Qty1=document.createElement('th');
+   
+   const tr1=document.createElement('tr');
+   Name1.innerHTML="Name";
+   tr1.appendChild(Name1);
+   ProductName1.innerHTML="ProductName";
+   tr1.appendChild(ProductName1);
+   Qty1.innerHTML="Quantity";
+   tr1.appendChild(Qty1);
+   
+  
+   table.appendChild(tr1);
+   table.setAttribute("border","1px solid #dddddd");
+   table.setAttribute("width","100%");
+   count=2;
+   }
+campaign.forEach(function (camp) {
+        
+ console.log("inside: "+camp.Name);
+
+ const tr=document.createElement('tr');
+ 
+
+ const Name=document.createElement('td');
+ const ProductName=document.createElement('td');
+ const Qty=document.createElement('td');
+ 
+ const delet=document.createElement('button');
+ const alink = document.createElement('a');
+ table.setAttribute("border","1px solid #dddddd");
+ table.setAttribute("width","100%");
+
+
+ 
+ 
+
+
+
+
+ Name.innerHTML=camp.Name;
+ tr.appendChild(Name);
+ ProductName.innerHTML=camp.ProductName;
+  tr.appendChild(ProductName);
+  Qty.innerHTML=camp.Qty;
+  tr.appendChild(Qty);
+  
+  delet.innerHTML="Delete";
+  delet.setAttribute("class","btn-sm");
+  alink.setAttribute("href","http://localhost:3000/deleteVendorCustomer/"+camp._id);
+  console.log("http://localhost:3000/deleteVendorCustomer/"+camp.Name);
+ tr.appendChild(delet);
+ alink.appendChild(delet);
+ tr.appendChild(alink);
+      
+ table.appendChild(tr);
+  tab.appendChild(table);
+
+ })
+})
+.catch(function () {
+console.log("error");
+});
+}
+}
+
+
+//Image Displaying
+var temp1=0;
+var id="";
+var counter=0;
+const Do = document.getElementById("images");
+function displayImage() {
+ var x = "furniture";
+ if (temp1==0){
+   fetch("http://localhost:3000/displayImage/"+x, options)
+     .then((response) => {
+         temp1=1;
+       return response.json();
+     })
+     .then((campaign) => {
+             campaign.forEach(function (camp) {
+             
+         
+
+                 
+
+             const div =document.createElement('div');
+             div.setAttribute("class","card");
+             const img = document.createElement('img');
+             img.setAttribute("src", "uploads/"+camp.nameIMG);
+             const div1 =document.createElement('div');
+             div1.setAttribute("class","container");
+             
+             const fc = document.createElement('figcaption');
+             fc.setAttribute("style","font-size:16px")
+             fc.innerHTML ="<br>"+ camp.NameofProd;
+             fc.setAttribute("name", camp.descIMG);
+             const button= document.createElement('button');
+             button.innerHTML="EDIT<br>";
+             
+             
+            button.setAttribute("class","edit");
+            
+           
+             const alink = document.createElement('a');
+             alink.setAttribute("href","http://localhost:3000/deleteImageFurniture/"+camp._id);
+             var p="he";
+             alink.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DELETE";
+             counter+=1;
+             
+             button.setAttribute("value",camp._id);
+             
+             button.setAttribute("onclick","editform("+counter+")");
+             button.setAttribute("id","button"+counter);
+ 
+ 
+ 
+
+              alink.setAttribute("class","delete");
+              
+             img.setAttribute("float", "left");
+             img.setAttribute("width", "300px");
+             img.setAttribute("height", "350px");
+         
+             
+             div1.appendChild(fc);
+             
+             div.appendChild(img);
+             div.appendChild(div1);
+             div.appendChild(button);
+             div.appendChild(document.createElement('br'));
+             div.appendChild(alink);
+             Do.appendChild(div);
+           
+       })
+     })
+     .catch(function () {
+       console.log("error");
+     });
+    }
+ }
+
+
+
+
+ function editform(cp){
+  //  alert(cp);
+  id=document.getElementById('button'+cp).value;
+    document.getElementById("myOverlay1").style.display = "block";
+  
+    var fd = document.getElementById("form1");
+    var x="furniture";
+    fetch("http://localhost:3000/displayImage/"+x, options)
+  
+  .then((response) => {
+  temp=1;
+      return response.json();
+  })
+  .then((campaign) => {
+      
+    //  alert("out");
+          
+          campaign.forEach(function (camp) {
+           
+           if(camp._id==id){
+             
+            // alert("inside: "+id);
+            fd.id.value=id;
+            fd.nameofprod.value=camp.NameofProd;
+            fd.price.value=camp.Price;
+          fd.qty.value=camp.Qty;
+         
+          
+ 
+          // fd.work.value=camp.Description;
+         
+          fd.descImg.value=camp.descIMG;
+          // alert(camp.descIMG);
+           }
+         
+          })
+      })
+      .catch(function () {
+          console.log("error");
+      });
+
+}
+
+
+
+
+
+function openSearch() {
+document.getElementById("myOverlay").style.display = "block";
+}
+
+function closeSearch() {
+document.getElementById("myOverlay").style.display = "none";
+}
+
+function closeSearch2() {
+document.getElementById("myOverlay1").style.display = "none";
+}
+function show(){
+document.getElementById("images").style.display = "block";
+document.getElementById("table").style.display = "none";
+}
+
+
+</script>
+
+
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Essence - Fashion Ecommerce Template</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <script src="../js/store.js" async></script>
+    <link rel="icon" href="../img/core-img/favicon.ico">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="../css/core-style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../js/feedback.js"></script>
+</head>
+
+<body onload="check(),showDesc()">
+    <!-- ##### Header Area Start ##### -->
+    <header class="header_area" >
+        <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar" id="essenceNav">
+                <!-- Logo -->
+                <a class="nav-brand"  href="http://localhost:5000/customer.html">Services to Door</a>
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+                <!-- Menu -->
+                <div class="classy-menu">
+                    <!-- close btn -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul>
+                            <li><a href="#">Services</a>
+                                <div class="dropdown"> 
+                                        <a class="dropdown-item" href="http://localhost:5000/services/customermaid.html">Cleaning</a>
+                                        <a class="dropdown-item" href="http://localhost:5000/services/customerelectric.html">Electric</a>
+                                        <a class="dropdown-item" href="http://localhost:5000/services/customerkitchen.html">Kitchen Tools</a> 
+                                </div>
+                            </li>
+                            <li><a href="#">Products</a>
+                                <ul class="dropdown">
+                                    <a class="dropdown-item" href="http://localhost:5000/product/customerutensil.html">Utensils</a>
+                                    <a class="dropdown-item" href="http://localhost:5000/product/customerfurniture.html">Furniture</a>
+                                    <a class="dropdown-item" href="http://localhost:5000/product/customerbedsheet.html">Bedsheet</a>
+                                </ul>
+                            </li>
+                          
+                        </ul>
+                    </div>
+                    <!-- Nav End -->
+                </div>
+            </nav>
+
+            <!-- Header Meta Data -->
+            <div class="header-meta d-flex clearfix justify-content-end">    
+                      
+                <!-- Cart Area -->
+                <div class="cart-area">
+                    <a href="http://localhost:5000/product/proceedtopay.html" id="essenceCartBtn"><img src="../img/core-img/bag.svg" alt=""></a>
+                </div>
+                <div class="user-login-info">
+                    <a href="http://localhost:3000/logout" id="essenceCartBtn"> <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
+                </div>  
+            </div>
+
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+               
+
+    <!-- ##### Right Side Cart End ##### -->
+
+    <!-- ##### Single Product Details Area Start ##### -->
+    <section>
+        <div id="desc"></div>
+        
+    </section>
+
+
+
+    <!-- <section class=" col-12">
+
+         Single Product Thumb 
+        <div class="col-sm-2 col-lg-5">
+            
+                <img src="img/product-img/product-big-1.jpg" alt="">
+           
+        </div>
+
+        Single Product Description 
+        <div class="single_product_desc clearfix">
+          
+            
+            <h2>One Shoulder Glitter Midi Dress</h2>
+            
+            <p class="product-price"> $49.00</p>
+            <p class="product-desc">Mauris viverra cursus ante laoreet eleifend. Donec vel fringilla ante. Aenean finibus velit id urna vehicula, nec maximus est sollicitudin.</p>
+
+            
+            <form class="cart-form clearfix" method="post">
+              
+                <div class="select-box d-flex mt-50 mb-30">
+                    <select name="select" id="productSize" class="mr-5">
+                        <option value="value">Size: XL</option>
+                        <option value="value">Size: X</option>
+                        <option value="value">Size: M</option>
+                        <option value="value">Size: S</option>
+                    </select>
+                    <select name="select" id="productColor">
+                        <option value="value">Color: Black</option>
+                        <option value="value">Color: White</option>
+                        <option value="value">Color: Red</option>
+                        <option value="value">Color: Purple</option>
+                    </select>
+                </div>
+                
+                <div class="cart-fav-box d-flex align-items-center">
+                  
+                    <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button>
+                  
+                </div>
+            </form>
+        </div>
+    </section> -->
+    <!-- ##### Single Product Details Area End ##### -->
+
+ <br>
+ <br>
+
+    <footer style=" bottom:0;">
+        <div class="main-content">
+          <div class="left box">
+            <h2 style="color: white;">About us</h2>
+            <div class="content">
+                <p>Services is a E-commerce website where user can register for there services or they can use the services which is provided by our website.</p>
+            </div>
+          </div>
+          <div class="center box">
+            <h2 style="color: white;">Address</h2>
+            <div class="content">
+              <div class="place">
+                <span class="fas fa-map-marker-alt"></span>
+                <span class="text">Nadiad, Gujarat</span>
+              </div>
+      
+              <div class="email">
+                  <span class="text">services@example.com</span>
+              </div>
+            </div>
+          </div>
+        
+          <div class="right box">
+            <h2 style="color: white;">FeedBack</h2>
+            <div class="content">
+            <form action="#">
+                <div class="email">
+                  <div class="text">Email *</div>
+                  <input type="email" required>
+                </div>
+                <div class="msg">
+                  <div class="text">Message *</div>
+                  <changeit id=".msgForm" rows="2" cols="25" required></changeit> 
+                  <input type="msg" required>
+                 <br />
+                  <div class="btn">
+                    <button type="submit">Send</button>
+                  </div>
+                <div class="bottom">
+                  <center>
+                      <span class="credit">Created By Services</a> | </span>
+                      <span class="far fa-copyright"></span> 2020 All rights reserved.
+                    </center>
+                </div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="../js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="../js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="../js/plugins.js"></script>
+    <!-- Classy Nav js -->
+    <script src="../js/classy-nav.min.js"></script>
+    <!-- Active js -->
+    <script src="../js/active.js"></script>
+
+</body>
+
+<script>
+    const options={
+     method:"post"
+     }
+  console.log(document.URL);
+  find=document.URL.indexOf('?');
+  var id=document.URL.substring(find+1);
+  //  alert("id from link "+id)
+  
+  function showDesc()
+  {
+  
+  const a=document.getElementById("desc");
+  
+  
+  fetch("http://localhost:3000/displayService.html/"+id,options)
+  .then((response) => {
+   
+  return response.json();
+  })
+  .then((dis) => {
+    
+  dis.forEach(function (disp) {
+  const d=document.createElement('div');
+  d.setAttribute("class","container-fluid");
+  const div=document.createElement('div');
+  div.setAttribute("class","col-sm-4 col-lg-4");
+      const img=document.createElement('img');
+      img.setAttribute("width","500px");
+      img.setAttribute("height","500px");
+      img.setAttribute("src", "uploads/"+disp.nameIMG)
+  div.appendChild(img);
+  
+  const div1=document.createElement('div');
+  div1.setAttribute("class","col-sm-8 col-lg-8");
+      const div2=document.createElement('div');
+      div2.setAttribute("class","single_product_desc clearfix");
+          const h=document.createElement('h1');
+          h.innerHTML="<br/>"+disp.NameofProd;
+          const p=document.createElement('p');
+          p.setAttribute("class","product-price");
+          p.setAttribute("style","font-size:25px;color:black");
+          
+          p.innerHTML="Rs. "+disp.Price;
+          const p1=document.createElement('p');
+          p1.setAttribute("class","product-desc");
+          p1.setAttribute("style","font-size:20px;color:black");
+          p1.innerHTML=disp.descIMG;
+          
+              const div3=document.createElement('div');
+              div3.setAttribute("class","cart-fav-box d-flex align-items-center");
+                  const label=document.createElement('label');
+                  label.setAttribute('for',"Quantity");
+                  label.innerHTML="Quantity &nbsp;";
+                  label.setAttribute("style","font-size:20px;color:black");
+                  const input=document.createElement('input');
+                  
+                  input.setAttribute("class","form-control");
+                  input.setAttribute("style","width:100px");
+                  input.setAttribute("type","number");
+                  input.setAttribute('onkeyup','update()');
+                  input.setAttribute("onkeypress","restrictMinus(event)");  
+                  input.setAttribute('onchange','update()');
+                  input.setAttribute("id","Quantity");
+                  input.setAttribute("min","1");
+                  input.setAttribute("value","1");
+                  input.setAttribute("padding","50px");
+                  
+              div3.appendChild(label);
+              div3.appendChild(input);
+              const br=document.createElement('br');
+              div3.appendChild(br);
+              div3.appendChild(br);
+              div3.appendChild(br);
+              const div4=document.createElement('div');
+              div4.setAttribute("class","cart-fav-box d-flex align-items-center");
+                  div4.innerHTML="<br/> <br/><br/><br/><br/>";
+                  const button=document.createElement('button');
+                  button.setAttribute("id","addtocart")
+                  button.setAttribute("name","addtocart");
+                  button.setAttribute("class","btn essence-btn");
+                  button.innerHTML="Add to cart";
+                  button.setAttribute("onclick","aftercart()");
+              div4.appendChild(button);
+          
+      div2.appendChild(h);
+      div2.appendChild(p);
+      div2.appendChild(p1);
+      div2.appendChild(div3);
+      div2.appendChild(div4);
+  div1.appendChild(div2);
+  d.appendChild(div);
+  d.appendChild(div1);
+  a.appendChild(d);
+  
+  
+  })
+  })
+  .catch(function () {
+  console.log("error");
+  });
+  }
+  function check(){
+    
+    //alert("ADDED TO CART");
+   // alert("ID IS"+id);
+   
+               
+  
+  fetch("http://localhost:3000/checkcart/"+id, {
+                 method: 'POST',
+                 headers: {
+                     'Content-Type': 'application/json',
+                   
+                 },
+             })
+   
+  .then((response) => {
+  return response.text();
+  })
+  .then((mytext) => {
+    if (mytext == 'already') {
+      document.getElementById("addtocart").style.backgroundColor = "#b4ffb4";
+    
+    document.getElementById("addtocart").disabled = true;
+                
+                          }
+                          else {
+                      
+                            
+                          }
+  
+  })
+  
+  .catch(function () {
+  console.log("error");
+  });}
+  function aftercart()
+  {
+    
+    //alert("ADDED TO CART");
+   // alert("ID IS"+id);
+   
+   var Quantity = document.getElementById("Quantity");
+  
+   var formData = {
+    "Quantity":Quantity.value
+   }
+  fetch("http://localhost:3000/addtocart/"+id,
+  {  method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+  })
+   
+  .then((response) => {
+  return response.text();
+  })
+  .then((mytext) => {
+    if (mytext == 'done') {
+                alert("ADDED TO CART");
+                document.getElementById("addtocart").style.backgroundColor = "#b4ffb4";
+    
+                document.getElementById("addtocart").disabled = true;
+                          }
+                          else {
+                            document.getElementById("addtocart").style.backgroundColor = "#b4ffb4";
+    
+                            document.getElementById("addtocart").disabled = true;
+                            
+                          }
+  
+  })
+  
+  .catch(function () {
+  console.log("error");
+  });
+            
+  }
+  </script>
+</html>

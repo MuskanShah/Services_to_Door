@@ -1,0 +1,532 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+        <!-- Title  -->
+        <title>Suggestion and payment</title>
+    
+        <!-- Favicon  -->
+        <link rel="stylesheet" href="../css/style.css">
+          <link rel="stylesheet" href="../css/footer.css">
+    
+          <link rel="icon" href="../img/core-img/favicon.ico">
+    
+          <!-- Core Style CSS -->
+          <link rel="stylesheet" href="../css/core-style.css">
+          <script src="../js/feedback.js"></script>
+    
+    </head>
+    <style>
+      .hello{
+
+        z-index:1
+      }
+    </style>
+<body onload="load(),email()">
+  <header class="header_area" >
+    <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+        <!-- Classy Menu -->
+        <nav class="classy-navbar" id="essenceNav">
+            <!-- Logo -->
+            <a class="nav-brand"  href="http://localhost:5000/customer.html">Services to Door</a>
+            <!-- Navbar Toggler -->
+            <div class="classy-navbar-toggler">
+                <span class="navbarToggler"><span></span><span></span><span></span></span>
+            </div>
+            <!-- Menu -->
+            <div class="classy-menu">
+                <!-- close btn -->
+                <div class="classycloseIcon">
+                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                </div>
+                <!-- Nav Start -->
+                <div class="classynav">
+                    <ul>
+                        <li><a href="#">Services</a>
+                            <div class="dropdown"> 
+                                    <a class="dropdown-item" href="http://localhost:5000/services/customermaid.html">Cleaning</a>
+                                    <a class="dropdown-item" href="http://localhost:5000/services/customerelectric.html">Electric</a>
+                                    <a class="dropdown-item" href="http://localhost:5000/services/customerkitchen.html">Kitchen Tools</a> 
+                            </div>
+                        </li>
+                        <li><a href="#">Products</a>
+                            <ul class="dropdown">
+                                <a class="dropdown-item" href="http://localhost:5000/product/customerutensil.html">Utensils</a>
+                                <a class="dropdown-item" href="http://localhost:5000/product/customerfurniture.html">Furniture</a>
+                                <a class="dropdown-item" href="http://localhost:5000/product/customerbedsheet.html">Bedsheet</a>
+                            </ul>
+                        </li>
+                      
+                    </ul>
+                </div>
+                <!-- Nav End -->
+            </div>
+        </nav>
+
+        <!-- Header Meta Data -->
+        <div class="header-meta d-flex clearfix justify-content-end">    
+                  
+            <!-- Cart Area -->
+            
+            <div class="user-login-info">
+                <a href="http://localhost:3000/logout" id="essenceCartBtn"> <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
+            </div>  
+        </div>
+
+    </div>
+</header>
+
+  <div class="checkout_area section-padding-80" class="hello">
+    <div class="container">
+        <div class="row">
+  
+            <div class="col-12 col-md-6">
+                <div class="checkout_details_area mt-50 clearfix">
+                    <div class="cart-page-heading mb-30">
+                        <h1>Details</h1>
+                    </div>
+                </div>
+            </div>
+  
+            <div class="col-12 ml-lg-auto">
+                <div class="order-details-confirmation">
+                    <form onsubmit="return displayElectric()">
+                        <div class="row">
+                          
+                         
+                            <div class="col-12 mb-4 ">
+                               
+                               <h id="Name" style="font-size: 40px;color: black;" ></h>
+                               <p id="NameOfWorker" style="font-size: 35px;color: black;"></p>
+                                
+                                <p style="font-size: 25px;color: black;">Your Worker will be available at specified Time
+                                  <br>Thank You For Registering At <b>"Services To Door!"</b>
+                                  <br>Your Visiting Charge is <b>Rs <h id="Rs"></h></b>
+                                <br>Actual Cost will You have to pay to Worker</p>
+                            
+                              
+                               
+                                
+                            </div>
+                           
+                           
+  
+                        </div>
+                    </form>
+                    <table>
+                      <tr>
+                        <td colspan="2" class="hidden-xs">
+                          <button class="btn btn-success" id="order-button1">Get Order Id <i class="fa fa-angle-right"></i> </button>
+                        </td>
+                        <td>
+                         <button class="btn btn-success" id="rzp-button1" onclick="hello()" disabled>Checkout <i class="fa fa-angle-right"></i> </button>
+                        </td>
+                        <td>
+                        <button class="btn btn-success" id="verify-button1" disabled>Verify<i class="fa fa-angle-right"></i> </button>
+                        </td>
+                      </tr>
+                  </table>
+                </div>
+               
+
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+   
+  
+  
+      <!-- ##### Footer Area Start ##### -->
+      <footer style=" bottom:0;">
+        <div class="main-content">
+          <div class="left box">
+            <h2 style="color: white;">About us</h2>
+            <div class="content">
+                <p>Services is a E-commerce website where user can register for there services or they can use the services which is provided by our website.</p>
+            </div>
+          </div>
+          <div class="center box">
+            <h2 style="color: white;">Address</h2>
+            <div class="content">
+              <div class="place">
+                <span class="fas fa-map-marker-alt"></span>
+                <span class="text">Nadiad, Gujarat</span>
+              </div>
+      
+              <div class="email">
+                  <span class="text">services@example.com</span>
+              </div>
+            </div>
+          </div>
+        
+          <div class="right box">
+            <h2 style="color: white;">FeedBack</h2>
+            <div class="content">
+            <form action="#">
+                <div class="email">
+                  <div class="text">Email *</div>
+                  <input type="email" required>
+                </div>
+                <div class="msg">
+                  <div class="text">Message *</div>
+                  <changeit id=".msgForm" rows="2" cols="25" required></changeit> 
+                  <input type="msg" required>
+                 <br />
+                  <div class="btn">
+                    <button type="submit">Send</button>
+                  </div>
+                <div class="bottom">
+                  <center>
+                      <span class="credit">Created By Services</a> | </span>
+                      <span class="far fa-copyright"></span> 2020 All rights reserved.
+                    </center>
+                </div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      </footer>
+</body>
+<script>
+  var WorkerName="";
+    function load(){
+        console.log(document.URL);
+ var  find=document.URL.indexOf('?');
+ 
+ 
+  var identifier=document.URL.indexOf('!');
+  var id=document.URL.substring(find+1,identifier);
+  document.getElementById('Rs').innerHTML=id;
+  var service=document.URL.substring(identifier+1);
+  if(service=="electric"){
+    document.getElementById('Name').innerHTML="Electrician Name:-";
+  }
+  else if(service=="kitchen"){
+    document.getElementById('Name').innerHTML="Repairer Name:-";
+  }
+  else if(service="maid"){
+    document.getElementById('Name').innerHTML="Maid Name:-";
+  }
+  // alert(service);
+  // alert(id)
+        fetch("http://localhost:3000/MinValue",{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+        .then((response) => {
+       // alert("1");
+        return response.json();
+        })
+        .then((campaign) => {
+        console.log("from api :" +campaign);
+       // alert("2")
+        campaign.forEach(function (camp) {
+             
+        console.log("inside: ");
+        //Maid Suggested
+      // alert(camp.Name)
+        var counter;
+        document.getElementById('NameOfWorker').innerHTML=camp.Name;
+        WorkerName=camp.Name;
+        // alert(camp.WorkDone)
+        counter=(parseInt(camp.WorkDone)); 
+        
+        // alert(parseInt(camp.WorkDone))
+        counter+=1
+        var formData = {
+ 
+ 'WorkDone':counter
+ 
+}
+            // API OF number of work Done
+            fetch("http://localhost:3000/updateWorkDone/"+camp.unique, {
+                  method:"POST",
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(formData),
+
+              })
+                  .then((response) => {
+                      return response.text();
+                  })
+                  .then((mytext) => {
+                    if (mytext == 'done') {
+                              //  alert("Calling sending email");
+                              //  alert("DONE in update")
+                                
+
+                  fetch("http://localhost:3000/updateMaidName/"+camp.Name, {
+                  method:"POST",
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+              })
+                  .then((response) => {
+                      return response.text();
+                  })
+                  .then((mytext) => {
+                    if (mytext == 'done') {
+                              //  alert("Calling sending email");
+                              //  alert("DONE")
+                               deleteInsertDetail();
+                        }
+                        else {
+                                alert(mytext);
+                        }
+                  })
+                  .catch(function () {
+                      console.log("error");
+                  });
+                        }
+                        else {
+                                alert(mytext);
+                        }
+                  })
+                  .catch(function () {
+                      console.log("error");
+                  });
+        })    
+        })
+        .catch(function () {
+        console.log("error");
+        });
+    }
+    
+    function deleteInsertDetail(){
+        fetch("http://localhost:3000/deleteAllInsertDetail", {
+                  method:"POST",
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                
+
+              })
+                  .then((response) => {
+                      return response.text();
+                  })
+                  .then((mytext) => {
+                    if (mytext == 'done') {
+                              //  alert("Calling sending email");
+                              //  alert("DONE in delete")
+                                
+                        }
+                        else {
+                                alert(mytext);
+                        }
+                  })
+
+                  .catch(function () {
+                      console.log("error");
+                  });
+    }
+</script>
+<script>
+    var emailid;
+ document.getElementById('order-button1').onclick = function(e){
+   
+   document.getElementById("order-button1").disabled = true;
+document.getElementById("rzp-button1").disabled = false;
+var  find=document.URL.indexOf('?');
+var  exla=document.URL.indexOf('!');
+  var id=document.URL.substring(find+1,exla);
+ var total=id*100;
+  
+ var url = 'http://localhost:3000/api/payment/order';
+     var params = {
+   amount: total,  
+   currency: "INR",
+   receipt: "su001",
+   payment_capture: '1'
+ };
+ 
+ var xmlHttp = new XMLHttpRequest();
+ xmlHttp.onreadystatechange = function (res) {
+     if (xmlHttp.readyState === 4) {
+       res=JSON.parse(xmlHttp.responseText);
+       document.getElementById('rzp-text').value=res.sub.id;
+     }
+ }
+ xmlHttp.open("POST", url, true); // false for synchronous request
+ xmlHttp.setRequestHeader("Content-type", "application/json");
+ xmlHttp.send(JSON.stringify(params));
+
+ }
+ </script>
+ 
+ 
+ 
+ 
+
+ <!-- <label>Order id   :</label> -->
+ <input type=hidden id=rzp-text /><br/>
+ <!-- <button id="rzp-button1">CHeckout</button> -->
+ <div id=paymentDetails></div>
+ <input type=hidden id=order-id />
+ <br/>
+ <input type=hidden id=order-pay-id />
+ <br/>
+<input type=hidden id=order-sig />
+ <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+ <script>
+ document.getElementById('rzp-button1').onclick = function(e){
+   document.getElementById("rzp-button1").disabled = true;
+document.getElementById("verify-button1").disabled = false;
+     var options = {
+     "key": "rzp_test_16QVKCjpkpLblg",  //Enter your razorpay key
+     "currency": "INR",
+     "name": "Razor Tutorial",
+     "description": "Razor Test Transaction",
+     "image": "https://previews.123rf.com/images/subhanbaghirov/subhanbaghirov1605/subhanbaghirov160500087/56875269-vector-light-bulb-icon-with-concept-of-idea-brainstorming-idea-illustration-.jpg",
+     "order_id": document.getElementById('rzp-text').value,
+     "handler": function (response){
+         document.getElementById('order-pay-id').value=response.razorpay_payment_id;
+  document.getElementById('order-id').value=response.razorpay_order_id;
+   document.getElementById('order-sig').value=response.razorpay_signature;
+     },
+     "theme": {
+         "color": "#227254"
+     }
+ };
+     var rzp1 = new Razorpay(options);
+     rzp1.open();
+     e.preventDefault();
+  
+ }
+ </script>
+
+  <!-- <label>Verify Signature</label><button id="verify-button1">Verify</button> -->
+ 
+ <script>
+ document.getElementById('verify-button1').onclick = function(e){
+   
+  //  alert(emailid);
+   document.getElementById("verify-button1").disabled = true;
+ var url = 'http://localhost:3000/api/payment/verify';
+     var params = {
+   razorpay_order_id:  document.getElementById('order-id').value,  
+   razorpay_payment_id:  document.getElementById('order-pay-id').value,
+   razorpay_signature:  document.getElementById('order-sig').value
+ };
+ var xmlHttp = new XMLHttpRequest();
+ xmlHttp.onreadystatechange = function (res) {
+     if (xmlHttp.readyState === 4) {
+ alert(xmlHttp.responseText);
+     }
+ }
+ xmlHttp.open("POST", url, true); // false for synchronous request
+ xmlHttp.setRequestHeader("Content-type", "application/json");
+ xmlHttp.send(JSON.stringify(params));
+// alert("DELETING FROM CART");
+sendMail(emailid);
+ 
+ }
+ function sendMail(mail){
+        // alert("my mail is "+mail);
+        // alert("o_id"+document.getElementById('order-id').value);
+        // alert("p_id"+document.getElementById('order-pay-id').value);
+        var  find=document.URL.indexOf('?');
+var  exla=document.URL.indexOf('!');
+  var id=document.URL.substring(find+1,exla);
+  
+   var total=id;
+       //  alert("total"+total);
+    
+ 
+ 
+ 
+  
+  var service=document.URL.substring(exla+1);
+  var sName='';
+  if(service=="electric"){
+    sName="Electrician Name:-";
+  }
+  else if(service=="kitchen"){
+    sName="Repairer Name:-";
+  }
+  else if(service="maid"){
+    sName="Maid Name:-";
+  }
+         var formData = {
+                  
+                  'oid': document.getElementById('order-id').value,
+                  'pid': document.getElementById('order-pay-id').value,
+                  'rs': total,
+                  'WorkerName':WorkerName,
+                  'ServiceName':sName
+                  
+              
+
+              }
+        fetch("http://localhost:3000/sendServices/"+mail, {
+                  
+          method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+
+              })
+                  .then((response) => {
+                      return response.text();
+                  })
+                  .then((mytext) => {
+                    if (mytext == 'done') {
+                                alert("payment Successful");
+                                window.location.href = "/customer";
+                        }
+                        else {
+                                alert(mytext);
+                        }
+                  })
+
+                  .catch(function () {
+                      console.log("error");
+                  });
+    }
+    const options={
+     method:"post"
+     }
+    function email(){
+        fetch("http://localhost:3000/email", options)
+                        .then((response) => {
+                        return response.json();
+                        })
+                        .then((respuser) => {
+                                
+                                respuser.forEach(function (User) {
+                                        console.log(User);
+                                         console.log("HEKKK"+User.Emailid);
+                                       //  alert("returning "+User.Emailid);
+                                         emailid=User.Emailid;
+                                       
+                                })
+                       
+                        })
+                        .catch(function () {
+                        console.log("error");
+                        });
+      }
+</script>
+  <!-- jQuery (Necessary for All JavaScript Plugins) -->
+  <script src="../js/jquery/jquery-2.2.4.min.js"></script>
+  <!-- Popper js -->
+  <script src="../js/popper.min.js"></script>
+  <!-- Bootstrap js -->
+  <script src="../js/bootstrap.min.js"></script>
+  <!-- Plugins js -->
+  <script src="../js/plugins.js"></script>
+  <!-- Classy Nav js -->
+  <script src="../js/classy-nav.min.js"></script>
+  <!-- Active js -->
+  <script src="../js/active.js"></script>
+</html>

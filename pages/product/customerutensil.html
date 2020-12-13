@@ -1,0 +1,302 @@
+
+<!DOCTYPE html> 
+<html> 
+  
+<head> 
+  
+    <!-- Including the bootstrap CDN -->
+    <link rel="stylesheet" href= 
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> 
+    <script src= 
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
+    </script> 
+    <script src= 
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"> 
+    </script> 
+    <script src= 
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"> 
+    </script> 
+      <link rel="stylesheet" href="../css/style.css">
+      <link rel="stylesheet" href="../css/footer.css">
+
+      <link rel="icon" href="../img/core-img/favicon.ico">
+
+      <!-- Core Style CSS -->
+      <link rel="stylesheet" href="../css/core-style.css">
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+   
+      <script src="../js/feedback.js"></script>
+</head> 
+<style>
+  .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 400px;
+  height: 350px;
+  padding:20px;
+  float:left;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+</style>
+<body onload="displayImage()"> 
+  
+  <header class="header_area" >
+    <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+        <!-- Classy Menu -->
+        <nav class="classy-navbar" id="essenceNav">
+            <!-- Logo -->
+            <a class="nav-brand"  href="http://localhost:5000/customer.html">Services to Door</a>
+            <!-- Navbar Toggler -->
+            <div class="classy-navbar-toggler">
+                <span class="navbarToggler"><span></span><span></span><span></span></span>
+            </div>
+            <!-- Menu -->
+            <div class="classy-menu">
+                <!-- close btn -->
+                <div class="classycloseIcon">
+                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                </div>
+                <!-- Nav Start -->
+                <div class="classynav">
+                    <ul>
+                        <li><a href="#">Services</a>
+                            <div class="dropdown"> 
+                                    <a class="dropdown-item" href="http://localhost:5000/services/customermaid.html">Cleaning</a>
+                                    <a class="dropdown-item" href="http://localhost:5000/services/customerelectric.html">Electric</a>
+                                    <a class="dropdown-item" href="http://localhost:5000/services/customerkitchen.html">Kitchen Tools</a> 
+                            </div>
+                        </li>
+                        <li><a href="#">Products</a>
+                            <ul class="dropdown">
+                                <a class="dropdown-item" href="http://localhost:5000/product/customerutensil.html">Utensils</a>
+                                <a class="dropdown-item" href="http://localhost:5000/product/customerfurniture.html">Furniture</a>
+                                <a class="dropdown-item" href="http://localhost:5000/product/customerbedsheet.html">Bedsheet</a>
+                            </ul>
+                        </li>
+                      
+                    </ul>
+                </div>
+                <!-- Nav End -->
+            </div>
+        </nav>
+
+        <!-- Header Meta Data -->
+        <div class="header-meta d-flex clearfix justify-content-end">    
+                  
+            <!-- Cart Area -->
+            <div class="cart-area">
+                <a href="http://localhost:5000/product/proceedtopay.html" id="essenceCartBtn"><img src="../img/core-img/bag.svg" alt=""></a>
+            </div>
+            <div class="user-login-info">
+                <a href="http://localhost:3000/logout" id="essenceCartBtn"> <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
+            </div>  
+        </div>
+
+    </div>
+</header>
+  
+ 
+
+<!-- ##### Breadcumb Area Start ##### -->
+<div class="breadcumb_area bg-img" style="background-image: url(../img/bg-img/breadcumb.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="page-title text-center">
+                    <h2>Utensils</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <br/>
+  <br/>
+  <div>
+    <div class="col col-md-12 col-lg-12"  style="background-color:rgb(247, 244, 244)" >
+      <div class="shop_grid_product_area">
+        <br>
+        <br>
+        <div class="row" id="images">
+          
+        </div>
+      </div>
+    </div>  
+
+
+
+
+  
+</div>
+  <footer style=" bottom:0;">
+    <div class="main-content">
+      <div class="left box">
+        <h2 style="color: white;">About us</h2>
+        <div class="content">
+            <p>Services is a E-commerce website where user can register for there services or they can use the services which is provided by our website.</p>
+        </div>
+      </div>
+      <div class="center box">
+        <h2 style="color: white;">Address</h2>
+        <div class="content">
+          <div class="place">
+            <span class="fas fa-map-marker-alt"></span>
+            <span class="text">Nadiad, Gujarat</span>
+          </div>
+  
+          <div class="email">
+              <span class="text">services@example.com</span>
+          </div>
+        </div>
+      </div>
+    
+      <div class="right box">
+        <h2 style="color: white;">FeedBack</h2>
+        <div class="content">
+        <form action="#">
+            <div class="email">
+              <div class="text">Email *</div>
+              <input type="email" required>
+            </div>
+            <div class="msg">
+              <div class="text">Message *</div>
+              <changeit id=".msgForm" rows="2" cols="25" required></changeit> 
+              <input type="msg" required>
+             <br />
+              <div class="btn">
+                <button type="submit">Send</button>
+              </div>
+            <div class="bottom">
+              <center>
+                  <span class="credit">Created By Services</a> | </span>
+                  <span class="far fa-copyright"></span> 2020 All rights reserved.
+                </center>
+            </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </footer>
+</body> 
+  <script>
+       const options={
+    method:"post"
+}
+var temp1=0;
+const Do = document.getElementById("images");
+function displayImage() {
+ var x = "utensil";
+ if (temp1==0){
+   fetch("http://localhost:3000/displayCustomer/"+x, options)
+     .then((response) => {
+         temp1=1;
+       return response.json();
+     })
+     .then((campaign) => {
+             campaign.forEach(function (camp) {
+             
+           
+                 
+
+              const div =document.createElement('div');
+              div.setAttribute("class","col-8 col-sm-4 col-lg-3");
+                const div1 =document.createElement('div');
+                div1.setAttribute("class","single-product-wrapper");
+             
+                  const div2 =document.createElement('div');
+                  div2.setAttribute("class","product-img");
+                    const img = document.createElement('img');
+                    img.setAttribute("src", "uploads/"+camp.nameIMG);
+                   
+                  
+                    img.setAttribute("height","300px;");
+                    img.setAttribute("weight","500px;");
+                    
+             
+         
+
+                    const alink = document.createElement('a');
+                    alink.setAttribute("href", "http://localhost:5000/product/displayService?" + camp._id);
+                    alink.appendChild(img);
+                    img.setAttribute("display"," block");
+                    img.setAttribute("margin-left"," auto");
+                    img.setAttribute("margin-right","auto");
+
+                  div2.appendChild(alink);
+                  
+             
+                  const div3 =document.createElement('div');
+                  div3.setAttribute("class","product-description");
+                    
+                      const fc = document.createElement('h3');
+                      fc.innerHTML = camp.NameofProd;
+                     
+                    alink.appendChild(fc);
+                  div3.appendChild(alink);
+                  div3.setAttribute("text-align","center");
+                div1.appendChild(div2);
+                div1.appendChild(div3);
+               
+              div.appendChild(div1);
+                    
+
+
+             
+            //  const div1 =document.createElement('div');
+            //  div1.setAttribute("class","container");
+            //  //const h=document.createElement('h');
+            //  //h.innerHTML=camp.descIMG;
+             
+             
+            //  fc.setAttribute("name", camp.nameIMG);
+            
+
+            
+            
+           
+           
+            //  //p.innerHTML="TEMPLATE";
+            //  //div1.appendChild(h);
+           
+            //  div1.appendChild(fc);
+            //  alink.appendChild(img);
+            //  div.appendChild(alink);
+            //  div.appendChild(div1);
+            
+           
+             Do.appendChild(div);
+           
+       })
+     })
+     .catch(function () {
+       console.log("error");
+     });
+    }
+ }
+
+  </script>
+   <!-- ##### Footer Area End ##### -->
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="../js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="../js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="../js/plugins.js"></script>
+    <!-- Classy Nav js -->
+    <script src="../js/classy-nav.min.js"></script>
+    <!-- Active js -->
+    <script src="../js/active.js"></script>
+
+</html> 

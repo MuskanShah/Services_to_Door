@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Services to Door</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="../img/core-img/favicon.ico">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="../css/core-style.css">
+    
+    <link rel="stylesheet" href="../css/style.css">
+   
+<style>
+img {
+  
+  max-width: 100%; }
+  .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 400px;
+  height: 500px;
+  padding:20px;
+  float:left;
+}
+body{
+    font-size: 18px ;
+  }
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+.edit{
+  
+  background-color: rgb(160, 231, 225);
+  border: none;
+  color: black;
+  
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.delete{
+  background-color: rgb(255, 61, 61);
+   color: black;
+   font-size: 16px;
+   border-radius: 50px;
+ /* text-align: center;
+  
+  
+  
+  cursor: pointer; */
+}
+.delete:hover{
+  background-color: rgb(255, 61, 61);
+   color: black;
+   font-size: 16px;
+   border-radius: 50px;
+}
+table,
+      td,
+      th {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #e5e5e5;
+        text-align: center;
+      }
+
+</style>
+</head>
+<body onload="call(),order()">
+
+  <header class="header_area" >
+    <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+        <!-- Classy Menu -->
+        <nav class="classy-navbar" id="essenceNav">
+            <!-- Logo -->
+            <a class="nav-brand" >Services to Door</a>
+            <!-- Navbar Toggler -->
+            <div class="classy-navbar-toggler">
+                <span class="navbarToggler"><span></span><span></span><span></span></span>
+            </div>
+            <!-- Menu -->
+            <div class="classy-menu">
+                <!-- close btn -->
+                <div class="classycloseIcon">
+                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                </div>
+                <!-- Nav Start -->
+                <div class="classynav">
+                  <ul>
+                    <li><a href="http://localhost:5000/kitchen">Home</a>
+                    </li>
+                    <li><a href="http://localhost:5000/services/kitchenServices.html" >Services</a>     
+                    </li>
+                  
+                </ul>
+                </div>
+                <!-- Nav End -->
+            </div>
+        </nav>
+
+        <!-- Header Meta Data -->
+        <div class="header-meta d-flex clearfix justify-content-end">    
+                  
+            
+            <div class="user-login-info">
+                <a href="http://localhost:3000/logout" id="essenceCartBtn"> <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
+            </div>  
+        </div>
+
+    </div>
+</header>
+      
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      
+      
+      <button class="btn e-btn" onclick="openSearch()" style=" left: 45%;margin: 0;position: absolute;">Add Your Service</button>
+      
+      
+    <div id="myOverlay" class="overlay">
+   
+        <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+        <br/>
+        <br/>
+        
+        <div class="col-12 col-md-6">
+          <div class="checkout_details_area mt-50 clearfix">
+              <div class="cart-page-heading mb-30">
+                  <h5>Add your Services!!</h5>
+              </div>
+              <form onsubmit=" return addService()" id ="regisform">
+                  <div class="row">
+                      <div class="col-md-12 mb-3">
+                          <label for="nameofperson">Name of Person<span>*</span></label>
+                          <input type="text" class="form-control"name="name"  id="name" required pattern="[a-zA-Z]\w+x`*" title="Must Contains Alphabets">
+                          
+                      </div>
+                      <br/>
+                      <div class="col-md-12 mb-3">
+                          <label for="phnum">Phone Number<span>*</span></label>
+                          <input type="text" class="form-control" id="phone" name="phone"  value="" required pattern="[9|8|7][0-9]{9}" title="Invalid Phone number Must Contain 10 digits">
+                      </div>
+                      
+                      <div class="col-md-12 mb-3">
+                        <label for="card">Aadhar Card Number<span>*</span></label>
+                        <br>
+
+                       <input type="text" class="form-control "  name="card"  id="card" required pattern="[0-9]{12}" title="Invalid Aadhar Card Number ">
+                      </div>
+                      
+                      <div class="col-md-12 mb-3">
+                          <label for="acnum">Bank Account Number<span>*</span></label>
+                          <br>
+                          <input type="text" class="form-control"  name="acnum"  id="acnum" required pattern="[0-9]{9,18}" title="Invalid Account Number ">
+                      </div>
+                      <div class="col-12 mb-3">
+                          <label for="place">Places<span>*</span></label>
+                          <br>
+                          <select    name="place" id="place" style="width: 840px;">
+                            <option value="vaniyavad">Vaniyavad</option>
+                            <option value="collegeroad">College Road</option>
+                            <option value="vaishaliarea">Vaishali Area</option>
+                            <option value="vkvroad">Vkv Road</option>
+                          </select>
+                      </div>
+                      
+                    <div class="col-12 mb-3">
+                      <label for="work">Work<span>*</span></label>
+                      <br>
+                      <input type="checkbox" name="box" id="1" ><label id="lbl_1">Cooker Repairer</label>&nbsp;&nbsp;
+          
+                      <input id="2" type="checkbox" name="box"  ><label id="lbl_2">Chimney Repairer</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      
+                      <input type="checkbox" name="box"  id="3" ><label id="lbl_3">Gas Stove Repairer</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                      
+                      <input type="checkbox" name="box" id="4" ><label id="lbl_4">Mixer Repairer</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      
+                      <input type="checkbox" name="box"  id="5" ><label id="lbl_5">Grinder Repairer</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      
+                      <input type="checkbox" name="box"  id="6" ><label id="lbl_6">Induction Repairer</label>&nbsp;&nbsp;
+                      
+ 
+                      <span id="txt" hidden></span>
+                  </div>
+                      <div class="col-12 mb-3">
+                          <button type="submit" class="btn btn-lg btn-success"  style="text-align:center">REGISTER</button>
+                      
+                      </div>
+                      <input type="hidden" name="ServiceName"  id="ServiceName" value="kitchen">
+                  </div>
+              </form>
+          </div>
+      </div>
+        
+      </div>
+      <div id="myOverlay1" class="overlay">
+   
+        <span class="closebtn" onclick="closeSearch2()" title="Close Overlay">×</span>
+        <br/>
+        <br/>
+        
+        <div class="col-12 col-md-6">
+          <div class="checkout_details_area mt-50 clearfix">
+              <div class="cart-page-heading mb-30">
+                  <h5>Update your Services!!</h5>
+              </div>
+              <form onsubmit=" return updateService()" id ="form1">
+                  <div class="row">
+                    <div class="col-md-12 mb-3">
+                      <input type="text" name="id" hidden >
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <label for="nameofperson">Name of Person<span>*</span></label>
+                    <input type="text" class="form-control"name="name"  id="name" required pattern="[a-zA-Z]\w+*" title="Must Contains Alphabets">
+                    
+                </div>
+                <br/>
+                <div class="col-md-12 mb-3">
+                    <label for="phnum">Phone Number<span>*</span></label>
+                    <input type="text" class="form-control" id="phone" name="phone"  value="" required pattern="[9|8|7][0-9]{9}" title="Invalid Phone number Must Contain 10 digits">
+                </div>
+                
+                <div class="col-md-12 mb-3">
+                  <label for="card">Aadhar Card Number<span>*</span></label>
+                  <br>
+
+                 <input type="text" class="form-control "  name="card"  id="card" required pattern="[0-9]{12}" title="Invalid Aadhar Card Number ">
+                </div>
+                
+                <div class="col-md-12 mb-3">
+                    <label for="acnum">Bank Account Number<span>*</span></label>
+                    <br>
+                    <input type="text" class="form-control"  name="acnum"  id="acnum" required pattern="[0-9]{9,18}" title="Invalid Account Number ">
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="place">Places<span>*</span></label>
+                    <br>
+                    <select    name="place" id="place" style="width: 840px;">
+                      <option value="vaniyavad">Vaniyavad</option>
+                      <option value="collegeroad">College Road</option>
+                      <option value="vaishaliarea">Vaishali Area</option>
+                      <option value="vkvroad">Vkv Road</option>
+                    </select>
+                </div>
+                
+              <div class="col-12 mb-3">
+                <label for="work">Work<span>*</span></label>
+                <br>
+                <input type="checkbox" name="box1" id="1u" ><label id="lbl_1u">Cooker Repairer</label>&nbsp;&nbsp;
+    
+                <input id="2u" type="checkbox" name="box1"  ><label id="lbl_2u">Chimney Repairer</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                <input type="checkbox" name="box1"  id="3u" ><label id="lbl_3u">Gas Stove Repairer</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <br>
+                <input type="checkbox" name="box1" id="4u" ><label id="lbl_4u">Mixer Repairer</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                <input type="checkbox" name="box1"  id="5u" ><label id="lbl_5u">Grinder Repairer</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                <input type="checkbox" name="box1"  id="6u" ><label id="lbl_6u">Induction Repairer</label>&nbsp;&nbsp;
+                
+                
+                <span id="txt1" hidden></span>
+            </div>
+                      <div class="col-12 mb-3">
+                          <button type="submit" class="btn btn-lg btn-success"  style="text-align:center">UPDATE</button>
+                      
+                      </div>
+                      <input type="hidden" name="ServiceName"  id="ServiceName" value="kitchen">
+                  </div>
+              </form>
+          </div>
+      </div>
+        
+      </div>
+      <br/>
+      <br/>
+  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<table style="border: 1px solid #dddddd; width:100% ;">  
+     
+  <tr> 
+      <div id="table">  
+       
+      </div>
+  </tr>
+</table>
+<br>
+<br>
+<br>
+<br>
+  
+
+</body>
+<script>
+    const options={
+ method:"post"
+}
+
+
+function addService()
+{
+var fd = document.getElementById("regisform");
+console.log(fd.name.value);
+
+var select="";
+document.getElementById("txt").innerHTML = "";
+var checkBoxes = document.getElementsByName("box");
+for(var i=0; i < checkBoxes.length;i++)
+{ 
+    if(checkBoxes[i].checked)
+    {           
+  document.getElementById("txt").innerHTML += document.getElementById("lbl_"+checkBoxes[i].id).innerHTML+","
+    }
+}
+select=document.getElementById("txt").innerHTML;
+
+var x="kitchen";
+var formData = {
+ 
+ 'Name':fd.name.value,
+ 'PhoneNum': fd.phone.value,
+ 'Card': fd.card.value,
+ 'Account': fd.acnum.value,
+ 
+ 'Place':fd.place.value,
+ 
+ 'Work':select,
+ 'ServiceName':x
+ 
+}
+
+
+    
+fetch("http://localhost:3000/Services/"+x, {
+                 method: 'POST',
+                 headers: {
+                     'Content-Type': 'application/json',
+                 },
+                 body: JSON.stringify(formData),
+
+             })
+   
+.then((response) => {
+  return response.text();
+})
+.then((mytext) => {
+    if (mytext == 'done') {
+        window.location.href = "http://localhost:5000/services/kitchenServices";
+  console.log(mytext);
+                          }
+                          else {
+                                  alert(mytext);
+                          }
+
+})
+
+.catch(function () {
+  console.log("error");
+});
+
+return false;
+
+}
+
+var id="";
+// const a = document.getElementById("name");
+var vat="";
+ function call()
+ { 
+     console.log("Calling");
+     fetch("http://localhost:3000/Sessionuser",
+     {
+             method: 'POST',
+             headers: {
+                     'Content-Type': 'application/json',
+             }, 
+     }).then((response) => 
+     {
+         return response.text();
+     })
+     .then((mytext) => 
+     {
+       console.log(mytext);
+       vat=mytext;
+        //  a.innerText=mytext;
+         
+     })
+     .catch(function () 
+     {
+         console.log("error");
+     });
+ }
+
+
+ 
+ function updateService(){
+  
+  var fd = document.getElementById("form1");
+console.log(fd.name.value);
+
+var select="";
+document.getElementById("txt1").innerHTML = "";
+var checkBoxes = document.getElementsByName("box1");
+for(var i=0; i < checkBoxes.length;i++)
+{ 
+    if(checkBoxes[i].checked)
+    {           
+  document.getElementById("txt1").innerHTML += document.getElementById("lbl_"+checkBoxes[i].id).innerHTML+","
+    }
+}
+select=document.getElementById("txt1").innerHTML;
+
+var x="kitchen";
+var formData = {
+
+
+  'Name':fd.name.value,
+ 'PhoneNum': fd.phone.value,
+ 'Card': fd.card.value,
+ 'Account': fd.acnum.value,
+ 'Place':fd.place.value,
+
+ 'Work':select,
+ 'ServiceName':x
+}
+
+fetch("http://localhost:3000/updateServices/"+fd.id.value, {
+                                      method: 'POST',
+                                      headers: {
+                                              'Content-Type': 'application/json',
+                                      },
+                                      body: JSON.stringify(formData),
+
+                              })
+.then((response) => {
+ 
+return response.text();
+})
+.then((mytext) => {
+if (mytext=='done'){
+  window.location.href = "http://localhost:5000/services/kitchenServices";
+console.log(mytext);
+}
+ 
+})
+
+.catch(function () {
+console.log("error");
+});
+
+return false;
+
+}
+
+ function editform(cp){
+ 
+  id=document.getElementById('button'+cp).value;
+ 
+   document.getElementById("myOverlay1").style.display = "block";
+ 
+   var fd = document.getElementById("form1");
+ 
+   fetch("http://localhost:3000/displayServices", options)
+ 
+ .then((response) => {
+ temp=1;
+ 
+     return response.json();
+ })
+ .then((campaign) => {
+     
+   
+         
+         campaign.forEach(function (camp) {
+          
+          if(camp._id==id){
+            
+         
+           fd.id.value=id;
+           fd.name.value=camp.Name;
+           fd.phone.value=camp.PhoneNum;
+         fd.card.value=camp.Card;
+         fd.acnum.value=camp.Account;
+       
+        
+         fd.place.value = camp.Place;
+      
+        
+     
+        var str=camp.Work;
+        var sample="";
+        for(var i=0; i < str.length;i++)
+        {   
+            if(str[i]==','){
+             
+              if(sample=="Cooker Repairer"){
+                
+                document.getElementById("1u").checked = true;
+               
+              }
+              else if(sample=="Chimney Repairer"){
+                
+                document.getElementById("2u").checked = true;
+               
+              }
+              else if(sample=="Gas Stove Repairer"){
+                
+                document.getElementById("3u").checked = true;
+               
+              }
+              else if(sample=="Mixer Repairer"){
+               
+                document.getElementById("4u").checked = true;
+               
+              }
+              else if(sample=="Grinder Repairer"){
+               
+                document.getElementById("5u").checked = true;
+               
+              }
+              else if(sample=="Induction Repairer"){
+                
+                document.getElementById("6u").checked = true;
+               
+              }
+           
+              sample="";
+            }
+            else{
+                sample+=str[i];
+            }
+        }
+        
+          }
+        
+         })
+     })
+     .catch(function () {
+         console.log("error");
+     });
+
+}
+
+
+
+
+
+
+function openSearch() {
+document.getElementById("myOverlay").style.display = "block";
+}
+
+function closeSearch() {
+document.getElementById("myOverlay").style.display = "none";
+}
+
+function closeSearch2() {
+document.getElementById("myOverlay1").style.display = "none";
+}
+function show(){
+document.getElementById("images").style.display = "block";
+document.getElementById("table").style.display = "none";
+}
+var counter=0;
+function order(){
+    
+  var x="kitchen";
+  const tab = document.getElementById("table");
+    fetch("http://localhost:3000/showServices/"+x, options)
+ 
+    .then((response) => {
+    temp=1;
+        return response.json();
+    })
+    .then((campaign) => {
+            console.log("from api :" +campaign);  
+            var count=1;
+            
+            const table=document.createElement('table');
+           
+            if(count==1){
+              
+                const Name1=document.createElement('th');
+                const Mobile1=document.createElement('th');
+                const Card1=document.createElement('th');
+                const Account1=document.createElement('th');
+                const Place1=document.createElement('th');
+               
+                const Work1=document.createElement('th');
+               
+                const one=document.createElement('th');
+                const sec=document.createElement('th');
+
+                const tr1=document.createElement('tr');
+               
+                Name1.innerHTML="Name";
+                tr1.appendChild(Name1);
+                
+                Mobile1.innerHTML="Phone No.";
+                tr1.appendChild(Mobile1);
+                
+                Card1.innerHTML="Card Number";
+                tr1.appendChild(Card1);
+
+                Account1.innerHTML="Account Number";
+                tr1.appendChild(Account1);
+                
+                Place1.innerHTML="Place";
+                tr1.appendChild(Place1);
+
+            
+                Work1.innerHTML="Work";
+                tr1.appendChild(Work1);
+                
+
+                one.innerHTML="";
+                tr1.appendChild(one);
+
+                sec.innerHTML="";
+                tr1.appendChild(sec);
+
+                table.appendChild(tr1);
+                
+                table.setAttribute("width","100%");
+              
+                count=2;
+               
+                }
+            campaign.forEach(function (camp) {
+                    
+            console.log("inside: "+camp.Name);
+            
+            const tr=document.createElement('tr');
+            
+
+            const Name=document.createElement('td');
+            const Mobile=document.createElement('td');
+            const Card=document.createElement('td');
+            const Account=document.createElement('td');
+            const Place=document.createElement('td');
+
+         
+            const Work=document.createElement('td');
+            const button=document.createElement('button');
+            const button1=document.createElement('button');
+            const alink = document.createElement('a');
+            const space=document.createElement('h');
+            button.setAttribute("class","btn-sm");
+            button1.setAttribute("class","btn-sm");
+            button.innerHTML="EDIT";
+            
+            counter+=1;
+             
+             button.setAttribute("value",camp._id);
+             
+             button.setAttribute("onclick","editform("+counter+")");
+             button.setAttribute("id","button"+counter);
+
+              alink.innerHTML="DELETE";
+            alink.setAttribute("href","http://localhost:3000/deleteKitchen/"+camp._id);
+            
+             
+            alink.setAttribute("color","white");
+            alink.setAttribute("text-decoration","none");
+            button1.appendChild(alink);
+
+            id=camp._id;
+              
+            console.log("IN MAID");
+          
+            table.setAttribute("border","1px solid #dddddd");
+            table.setAttribute("width","100%");
+            
+           
+               console.log("MY ID IS",id)
+            
+            
+            
+            
+
+
+                Name.innerHTML=camp.Name;
+                tr.appendChild(Name);
+                Mobile.innerHTML=camp.PhoneNum;
+                tr.appendChild(Mobile);
+                Card.innerHTML=camp.Card;
+                tr.appendChild(Card);
+                Account.innerHTML=camp.Account;
+                tr.appendChild(Account);
+                Place.innerHTML=camp.Place;
+                tr.appendChild(Place);
+                
+                space.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+             
+                Work.innerHTML=camp.Work;
+                tr.appendChild(Work);
+                tr.appendChild(button);
+                tr.appendChild(space);
+                tr.appendChild(button1);   
+            table.appendChild(tr);
+            tab.appendChild(table);
+            })
+        })
+        .catch(function () {
+            console.log("error");
+        });
+        
+}
+
+
+</script>
+
+
+</html>
